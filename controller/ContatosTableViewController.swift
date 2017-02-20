@@ -8,19 +8,41 @@
 
 import UIKit
 
-class ContatosTableViewController: UITableViewController {
+class ContatosTableViewController: UITableViewController, FormularioViewControllerDelegate {
     
     private var dao:ContatoDao!
     static let cellIdentifier:String = "cell"
+    var selectedContato:Contato!
+    var highlightRow: Int?
     
+    // Metodo chamado quando a tela eh instanciada pela primeira vez.
+    // Soh eh chamado quando nao ha nenhuma instancia da tela
     required init?(coder aDecoder:NSCoder){
         super.init(coder:aDecoder)
         dao = ContatoDao.ContatoDaoInstance()
-//        self.navigationItem.leftBarButtonItem = self.editButtonItem
+        highlightRow = -1
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
+    
+    /// Metodo chamado quando os elementos de tela (views/outlets) estao pronto para uso
+    override func viewDidLoad(){
+        
+    }
+    
+    /// Metodo da viewController. Chamado apos o metodo viewDidLoad
+    ///
+    /// - Parameter animated: <#animated description#>
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if self.highlightRow! >= 0 {
+            let indexPath:IndexPath = IndexPath(row: highlightRow!, section: 0)
+            self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+            self.highlightRow = -1
+        }
     }
     
     
@@ -39,7 +61,7 @@ class ContatosTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == .delete){
             self.dao.removeAt(position: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.deleteRows(at: [indexPath], with: .left)
         }
     }
     
@@ -73,11 +95,47 @@ class ContatosTableViewController: UITableViewController {
     ///   - tableView: <#tableView description#>
     ///   - indexPath: posicao a ser carregada
     /// - Returns: <#return value description#>
-//    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-//        if tableView.isEditing {
-//            return .delete
-//        }
-//        
-//        return .none
-//    }
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if tableView.isEditing {
+            return .delete
+        }
+        
+        return .none
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedContato = dao.getContatoAt(position: indexPath.row)
+        self.showContato()
+    }
+    
+    func showContato(){
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let form:FormularioViewController = storyboard.instantiateViewController(withIdentifier: "form_view") as! FormularioViewController
+        form.contato = selectedContato
+        form.delegate = self
+        self.navigationController?.pushViewController(form, animated: true)
+    }
+    
+    
+    /// Metodo chamado ao realizar a transicao de tela
+    ///
+    /// - Parameters:
+    ///   - segue: <#segue description#>
+    ///   - sender: <#sender description#>
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segue_form" {
+            let form:FormularioViewController = segue.destination as! FormularioViewController
+            form.delegate = self
+        }
+    }
+    
+    func addContatoDone(contato: Contato) {
+        print("contato adicionado: \(contato.name!)")
+        self.highlightRow = dao.getPositionOf(contato: contato)
+    }
+    
+    func editContatoDone(contato: Contato) {
+        print("contato editado: \(contato.name!)")
+        self.highlightRow = dao.getPositionOf(contato: contato)
+    }
 }

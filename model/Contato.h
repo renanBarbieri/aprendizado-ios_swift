@@ -16,4 +16,5 @@
 @property (strong) NSString *site;
 
 -(Contato*) initWithName: (NSString*)name Phone:(NSString*)phone Address:(NSString*)address AndSite:(NSString*)site;
+-(void) updateValues: (NSString*)name Phone:(NSString*)phone Address:(NSString*)address AndSite:(NSString*)site;
 @end

@@ -62,4 +62,13 @@ class ContatoDao: NSObject{
         return contatos[position]
     }
     
+    
+    /// Pega a posicao de um contato dentro da lista
+    ///
+    /// - Parameter contato: contato a ser encontrado
+    /// - Returns: posicao do contato passado
+    func getPositionOf(contato:Contato) -> Int {
+        return contatos.index(of: contato)!
+    }
+    
 }

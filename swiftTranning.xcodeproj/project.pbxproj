@@ -17,6 +17,7 @@
 		6971C1571E5492B1009AB6DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6971C1551E5492B1009AB6DB /* Main.storyboard */; };
 		6971C1591E5492B1009AB6DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6971C1581E5492B1009AB6DB /* Assets.xcassets */; };
 		6971C15C1E5492B1009AB6DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6971C15A1E5492B1009AB6DB /* LaunchScreen.storyboard */; };
+		69764EA41E5B3CB0002EDB10 /* FormularioViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69764EA31E5B3CB0002EDB10 /* FormularioViewControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,6 @@
 		694FF2DC1E55D40B00351F47 /* CalculadoraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculadoraViewController.swift; path = controller/CalculadoraViewController.swift; sourceTree = "<group>"; };
 		694FF2E41E55DC9300351F47 /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contato.h; path = model/Contato.h; sourceTree = "<group>"; };
 		694FF2E51E55DC9300351F47 /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contato.m; path = model/Contato.m; sourceTree = "<group>"; };
-		694FF2E81E55E11000351F47 /* swiftTranning-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "swiftTranning-Bridging-Header.h"; sourceTree = "<group>"; };
 		694FF2EA1E55E4AD00351F47 /* ContatoDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContatoDAO.swift; path = dao/ContatoDAO.swift; sourceTree = "<group>"; };
 		694FF2EC1E55F11100351F47 /* ContatosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContatosTableViewController.swift; path = controller/ContatosTableViewController.swift; sourceTree = "<group>"; };
 		6971C14E1E5492B1009AB6DB /* swiftTranning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftTranning.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +34,8 @@
 		6971C1581E5492B1009AB6DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6971C15B1E5492B1009AB6DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6971C15D1E5492B1009AB6DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69764EA01E5B2099002EDB10 /* aprendizado-ios_swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "aprendizado-ios_swift-Bridging-Header.h"; path = "/Users/thaciana.lima/Dev/Tests/Projects/UniversidadeRadix/aprendizado-ios_swift/aprendizado-ios_swift-Bridging-Header.h"; sourceTree = "<absolute>"; };
+		69764EA31E5B3CB0002EDB10 /* FormularioViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormularioViewControllerDelegate.swift; path = controller/delegate/FormularioViewControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 		6906EE4B1E549D8D003E81CF /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				69764EA21E5B3C78002EDB10 /* delegate */,
 				694FF2EC1E55F11100351F47 /* ContatosTableViewController.swift */,
 				6906EE491E549BFA003E81CF /* FormularioViewController.swift */,
 				694FF2DC1E55D40B00351F47 /* CalculadoraViewController.swift */,
@@ -77,7 +80,7 @@
 		6971C1451E5492B1009AB6DB = {
 			isa = PBXGroup;
 			children = (
-				6971C1501E5492B1009AB6DB /* swiftTranning */,
+				6971C1501E5492B1009AB6DB /* aprendizado-ios_swift */,
 				6971C14F1E5492B1009AB6DB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,7 +93,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6971C1501E5492B1009AB6DB /* swiftTranning */ = {
+		6971C1501E5492B1009AB6DB /* aprendizado-ios_swift */ = {
 			isa = PBXGroup;
 			children = (
 				694FF2E91E55E48D00351F47 /* DAO */,
@@ -98,13 +101,14 @@
 				694FF2DE1E55DA0900351F47 /* view */,
 				6906EE4B1E549D8D003E81CF /* controller */,
 				6971C1511E5492B1009AB6DB /* AppDelegate.swift */,
-				694FF2E81E55E11000351F47 /* swiftTranning-Bridging-Header.h */,
 				6971C1581E5492B1009AB6DB /* Assets.xcassets */,
 				6971C15A1E5492B1009AB6DB /* LaunchScreen.storyboard */,
 				6971C15D1E5492B1009AB6DB /* Info.plist */,
+				69764EA01E5B2099002EDB10 /* aprendizado-ios_swift-Bridging-Header.h */,
 			);
-			path = swiftTranning;
-			sourceTree = "<group>";
+			name = "aprendizado-ios_swift";
+			path = "/Users/thaciana.lima/Dev/Tests/Projects/UniversidadeRadix/aprendizado-ios_swift";
+			sourceTree = "<absolute>";
 		};
 		6971C1651E54979F009AB6DB /* model */ = {
 			isa = PBXGroup;
@@ -113,6 +117,14 @@
 				694FF2E51E55DC9300351F47 /* Contato.m */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		69764EA21E5B3C78002EDB10 /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				69764EA31E5B3CB0002EDB10 /* FormularioViewControllerDelegate.swift */,
+			);
+			name = delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +204,7 @@
 				694FF2ED1E55F11100351F47 /* ContatosTableViewController.swift in Sources */,
 				694FF2E61E55DC9300351F47 /* Contato.m in Sources */,
 				694FF2DD1E55D40B00351F47 /* CalculadoraViewController.swift in Sources */,
+				69764EA41E5B3CB0002EDB10 /* FormularioViewControllerDelegate.swift in Sources */,
 				694FF2EB1E55E4AD00351F47 /* ContatoDAO.swift in Sources */,
 				6971C1521E5492B1009AB6DB /* AppDelegate.swift in Sources */,
 				6906EE4A1E549BFA003E81CF /* FormularioViewController.swift in Sources */,
@@ -324,11 +337,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = swiftTranning/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.universidaderadix.swiftTranning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "swiftTranning/swiftTranning-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "aprendizado-ios_swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -339,11 +352,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = swiftTranning/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.universidaderadix.swiftTranning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "swiftTranning/swiftTranning-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "aprendizado-ios_swift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

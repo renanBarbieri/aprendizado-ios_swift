@@ -22,6 +22,13 @@
     return nil;
 }
 
+-(void) updateValues:(NSString *)name Phone:(NSString *)phone Address:(NSString *)address AndSite:(NSString *)site{
+    self.name = name;
+    self.phone = phone;
+    self.address = address;
+    self.site = site;
+}
+
 -(NSString *) description{
     return [NSString stringWithFormat:
             @"Nome:%@, Telefone:%@, Endereco:%@, Site:%@",

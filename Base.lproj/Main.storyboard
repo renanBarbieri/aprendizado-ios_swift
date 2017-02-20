@@ -12,12 +12,12 @@
         <!--Adicionar Contato-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FormularioViewController" customModule="swiftTranning" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="form_view" id="BYZ-38-t0r" customClass="FormularioViewController" customModule="swiftTranning" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="form_view" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -82,7 +82,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Adicionar Contato" id="EMp-yf-PKp">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JQJ-r6-wIX">
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="JQJ-r6-wIX">
                             <connections>
                                 <action selector="addContato:" destination="BYZ-38-t0r" id="YJU-Sl-bMf"/>
                             </connections>
@@ -142,7 +142,7 @@
                     <navigationItem key="navigationItem" title="Contatos" id="Beg-B4-xwb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="B1k-qA-y2h">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="WYR-3M-oFQ"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="segue_form" id="WYR-3M-oFQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
