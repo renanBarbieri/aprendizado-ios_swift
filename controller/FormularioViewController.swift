@@ -8,8 +8,9 @@
 
 import UIKit
 
-class FormularioViewController: UIViewController {
+class FormularioViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var photoInput: UIButton!
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var phoneInput: UITextField!
     @IBOutlet weak var addressInput: UITextField!
@@ -40,6 +41,21 @@ class FormularioViewController: UIViewController {
             self.navigationItem.rightBarButtonItem = botaoAlterar
             self.navigationItem.title = "Editar Contato"
             
+        }
+    }
+    
+    
+    @IBAction func selectPhoto(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            //câmera disponível
+        }else {
+            //usar biblioteca
+            let pickerController:UIImagePickerController = UIImagePickerController()
+            pickerController.sourceType = .photoLibrary
+            pickerController.allowsEditing = true
+            pickerController.delegate = self
+            
+            self.present(pickerController, animated: true, completion: nil)
         }
     }
 
@@ -81,5 +97,14 @@ class FormularioViewController: UIViewController {
         }
         
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let imageSelected: UIImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        self.photoInput.setBackgroundImage(imageSelected, for: .normal)
+        self.photoInput.setTitle(nil, for: .normal)
+        
+        picker.dismiss(animated: true, completion: nil)
     }
 }

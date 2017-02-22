@@ -14,6 +14,7 @@ class ContatosTableViewController: UITableViewController, FormularioViewControll
     static let cellIdentifier:String = "cell"
     var selectedContato:Contato!
     var highlightRow: Int?
+    var actionsManager:LongPressActionManager!
     
     // Metodo chamado quando a tela eh instanciada pela primeira vez.
     // Soh eh chamado quando nao ha nenhuma instancia da tela
@@ -21,13 +22,16 @@ class ContatosTableViewController: UITableViewController, FormularioViewControll
         super.init(coder:aDecoder)
         dao = ContatoDao.ContatoDaoInstance()
         highlightRow = -1
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
     
     /// Metodo chamado quando os elementos de tela (views/outlets) estao pronto para uso
     override func viewDidLoad(){
+        super.viewDidLoad()
         
+        let gestureLongPress = UILongPressGestureRecognizer(target: self, action: #selector(showMoreActions(_:)))
+        
+        self.tableView.addGestureRecognizer(gestureLongPress)
     }
     
     /// Metodo da viewController. Chamado apos o metodo viewDidLoad
@@ -35,6 +39,9 @@ class ContatosTableViewController: UITableViewController, FormularioViewControll
     /// - Parameter animated: <#animated description#>
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
+        if(dao.getContatos().count>0){
+            self.navigationItem.leftBarButtonItem = self.editButtonItem
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -137,5 +144,19 @@ class ContatosTableViewController: UITableViewController, FormularioViewControll
     func editContatoDone(contato: Contato) {
         print("contato editado: \(contato.name!)")
         self.highlightRow = dao.getPositionOf(contato: contato)
+    }
+    
+    func showMoreActions(_ gesture: UIGestureRecognizer){
+        if(gesture.state == .began){
+            let screenPosition:CGPoint = gesture.location(in: self.tableView)
+            //associa a variavel o possivel valor se encontrar
+            if let indexPath:IndexPath = self.tableView.indexPathForRow(at: screenPosition){
+                self.selectedContato = self.dao.getContatoAt(position: indexPath.row)
+                
+                self.actionsManager = LongPressActionManager(withContato: self.selectedContato, andController: self)
+                self.actionsManager.defineActions()
+                
+            }
+        }
     }
 }
