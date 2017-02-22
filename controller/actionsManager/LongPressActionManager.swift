@@ -63,11 +63,16 @@ class LongPressActionManager:NSObject{
     
     func openMap(){
         var mapUrl = contato.address
-        mapUrl = "https://maps.google.com/?q="+(mapUrl?.replacingOccurrences(of: " ", with: "+", options: .literal))!
+        mapUrl = "https://maps.apple.com/?q="+(mapUrl?.replacingOccurrences(of: " ", with: "+", options: .literal))!
         openApp(withUrl: mapUrl!)
     }
     
     private func openApp(withUrl url:String){
-        UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.openURL(URL(string: url)!)
+        }
     }
 }

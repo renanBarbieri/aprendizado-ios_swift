@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Contato : NSObject
 
@@ -14,6 +15,7 @@
 @property (strong) NSString *phone;
 @property (strong) NSString *address;
 @property (strong) NSString *site;
+@property (strong) UIImage *photo;
 
 -(Contato*) initWithName: (NSString*)name Phone:(NSString*)phone Address:(NSString*)address AndSite:(NSString*)site;
 -(void) updateValues: (NSString*)name Phone:(NSString*)phone Address:(NSString*)address AndSite:(NSString*)site;

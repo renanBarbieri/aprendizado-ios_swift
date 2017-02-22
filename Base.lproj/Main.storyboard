@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7ei-8q-eZk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lKo-uc-ua8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -83,7 +83,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Foto"/>
                                 <connections>
-                                    <action selector="selectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tBD-Lh-TZT"/>
+                                    <action selector="selectPhoto2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zXY-rC-5Wd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -108,10 +108,75 @@
             </objects>
             <point key="canvasLocation" x="-76" y="131"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="ziJ-DM-NU1">
+            <objects>
+                <tabBarController id="lKo-uc-ua8" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Arz-sO-R8c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="selectedImageTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7ei-8q-eZk" kind="relationship" relationship="viewControllers" id="XeM-ba-TkZ"/>
+                        <segue destination="Oz4-oO-Afp" kind="relationship" relationship="viewControllers" id="bVo-QF-wXI"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XGe-Ml-cmp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2422" y="494"/>
+        </scene>
+        <!--Mapa-->
+        <scene sceneID="fe5-lY-VBv">
+            <objects>
+                <navigationController id="Oz4-oO-Afp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Mapa" image="map" id="kfK-j7-Kok"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dyb-A5-UN4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="46d-gR-LmH" kind="relationship" relationship="rootViewController" id="pjJ-b9-eWr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QvG-UD-lrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1636" y="825"/>
+        </scene>
+        <!--Mapa de Contatos-->
+        <scene sceneID="eRH-L9-D9z">
+            <objects>
+                <viewController id="46d-gR-LmH" customClass="MapViewController" customModule="swiftTranning" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O7t-uP-px9"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZCm-It-Vcx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EUp-iR-ArF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SUL-hT-Z4b">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mapa de Contatos" id="172-h6-RpX"/>
+                    <connections>
+                        <outlet property="map" destination="SUL-hT-Z4b" id="bsx-tC-eoI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c9w-Xx-vxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-834.39999999999998" y="825.33733133433293"/>
+        </scene>
+        <!--Contatos-->
         <scene sceneID="w9w-hc-upd">
             <objects>
                 <navigationController id="7ei-8q-eZk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Contatos" image="contato" id="Nps-Ph-HIQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zpy-Id-x7g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -161,4 +226,9 @@
             <point key="canvasLocation" x="-826" y="131"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="contato" width="30" height="30"/>
+        <image name="map" width="30" height="30"/>
+    </resources>
+    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

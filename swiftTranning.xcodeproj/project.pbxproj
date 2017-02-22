@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6906EE4A1E549BFA003E81CF /* FormularioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6906EE491E549BFA003E81CF /* FormularioViewController.swift */; };
+		690EE22C1E5DD61F00AA21D8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690EE22B1E5DD61F00AA21D8 /* MapKit.framework */; };
+		690EE22E1E5DD76C00AA21D8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EE22D1E5DD76C00AA21D8 /* MapViewController.swift */; };
 		69417B091E5C7F570057439E /* LongPressActionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69417B081E5C7F570057439E /* LongPressActionManager.swift */; };
 		694FF2DB1E55D3E600351F47 /* Calculadora.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 694FF2D91E55D3E600351F47 /* Calculadora.storyboard */; };
 		694FF2DD1E55D40B00351F47 /* CalculadoraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694FF2DC1E55D40B00351F47 /* CalculadoraViewController.swift */; };
@@ -23,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		6906EE491E549BFA003E81CF /* FormularioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormularioViewController.swift; path = controller/FormularioViewController.swift; sourceTree = "<group>"; };
+		690EE22B1E5DD61F00AA21D8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		690EE22D1E5DD76C00AA21D8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = controller/MapViewController.swift; sourceTree = "<group>"; };
+		690EE22F1E5DE71A00AA21D8 /* RadixLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RadixLocation.gpx; sourceTree = "<group>"; };
 		69417B081E5C7F570057439E /* LongPressActionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LongPressActionManager.swift; path = controller/actionsManager/LongPressActionManager.swift; sourceTree = "<group>"; };
 		694FF2DA1E55D3E600351F47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Calculadora.storyboard; sourceTree = "<group>"; };
 		694FF2DC1E55D40B00351F47 /* CalculadoraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculadoraViewController.swift; path = controller/CalculadoraViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690EE22C1E5DD61F00AA21D8 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,8 +65,17 @@
 				694FF2EC1E55F11100351F47 /* ContatosTableViewController.swift */,
 				6906EE491E549BFA003E81CF /* FormularioViewController.swift */,
 				694FF2DC1E55D40B00351F47 /* CalculadoraViewController.swift */,
+				690EE22D1E5DD76C00AA21D8 /* MapViewController.swift */,
 			);
 			name = controller;
+			sourceTree = "<group>";
+		};
+		690EE22A1E5DD61E00AA21D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				690EE22B1E5DD61F00AA21D8 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		69417B071E5C7F1A0057439E /* actionsManager */ = {
@@ -93,6 +108,7 @@
 			children = (
 				6971C1501E5492B1009AB6DB /* aprendizado-ios_swift */,
 				6971C14F1E5492B1009AB6DB /* Products */,
+				690EE22A1E5DD61E00AA21D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +132,7 @@
 				6971C15A1E5492B1009AB6DB /* LaunchScreen.storyboard */,
 				6971C15D1E5492B1009AB6DB /* Info.plist */,
 				69764EA01E5B2099002EDB10 /* aprendizado-ios_swift-Bridging-Header.h */,
+				690EE22F1E5DE71A00AA21D8 /* RadixLocation.gpx */,
 			);
 			name = "aprendizado-ios_swift";
 			path = "/Users/thaciana.lima/Dev/Tests/Projects/UniversidadeRadix/aprendizado-ios_swift";
@@ -170,6 +187,7 @@
 				TargetAttributes = {
 					6971C14D1E5492B1009AB6DB = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = LMV7YJMJ9G;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -216,6 +234,7 @@
 				694FF2E61E55DC9300351F47 /* Contato.m in Sources */,
 				694FF2DD1E55D40B00351F47 /* CalculadoraViewController.swift in Sources */,
 				69764EA41E5B3CB0002EDB10 /* FormularioViewControllerDelegate.swift in Sources */,
+				690EE22E1E5DD76C00AA21D8 /* MapViewController.swift in Sources */,
 				694FF2EB1E55E4AD00351F47 /* ContatoDAO.swift in Sources */,
 				69417B091E5C7F570057439E /* LongPressActionManager.swift in Sources */,
 				6971C1521E5492B1009AB6DB /* AppDelegate.swift in Sources */,
@@ -349,7 +368,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = LMV7YJMJ9G;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.universidaderadix.aprendizadoios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -364,7 +385,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = LMV7YJMJ9G;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.universidaderadix.aprendizadoios;
 				PRODUCT_NAME = "$(TARGET_NAME)";

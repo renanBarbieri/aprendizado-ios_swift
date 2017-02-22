@@ -35,6 +35,11 @@ class FormularioViewController: UIViewController, UIImagePickerControllerDelegat
             self.addressInput.text = contato.address
             self.siteInput.text = contato.site
             
+            if contato.photo != nil {
+                self.photoInput.setBackgroundImage(contato.photo, for: .normal)
+                self.photoInput.setTitle(nil, for: .normal)
+            }
+            
             
             // selector com parametro: #selector( metodo(_:param1:param2:) )
             let botaoAlterar: UIBarButtonItem = UIBarButtonItem( title: "Confirmar", style: .plain, target: self, action: #selector(updateContato) )
@@ -42,21 +47,57 @@ class FormularioViewController: UIViewController, UIImagePickerControllerDelegat
             self.navigationItem.title = "Editar Contato"
             
         }
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
     }
     
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
-    @IBAction func selectPhoto(_ sender: Any) {
+    @IBAction func selectPhoto2(_ sender: Any) {
+        let pickerController:UIImagePickerController = UIImagePickerController()
+        pickerController.allowsEditing = true
+        pickerController.delegate = self
+        
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             //câmera disponível
-        }else {
-            //usar biblioteca
-            let pickerController:UIImagePickerController = UIImagePickerController()
-            pickerController.sourceType = .photoLibrary
-            pickerController.allowsEditing = true
-            pickerController.delegate = self
+            let alertController = UIAlertController(title: "Escolha a foto do contato", message: "Adicionar foto", preferredStyle: .actionSheet)
             
+            let cancelar: UIAlertAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+            
+            let tirarFoto: UIAlertAction = UIAlertAction(title: "Tirar Foto", style: .default){ (action) in
+                pickerController.sourceType = .camera
+                self.present(pickerController, animated: true, completion: nil)
+        
+            }
+            
+            let selecionarFoto: UIAlertAction = UIAlertAction(title: "Escolher da biblioteca", style: .default){(action) in
+                pickerController.sourceType = .photoLibrary
+                self.present(pickerController, animated: true, completion: nil)
+                
+            }
+            
+            alertController.addAction(cancelar)
+            alertController.addAction(tirarFoto)
+            alertController.addAction(selecionarFoto)
+            self.present(alertController, animated: true, completion: nil)
+            
+           
+
+        }
+        else {
+            //usar biblioteca
+            pickerController.sourceType = .photoLibrary
             self.present(pickerController, animated: true, completion: nil)
         }
+        
     }
 
     /// Metodo que adiciona um contato à lista de contatos
@@ -69,7 +110,10 @@ class FormularioViewController: UIViewController, UIImagePickerControllerDelegat
         let site = siteInput.text!
         
         let contato:Contato = Contato.init(name: name, phone: phone, address: address, andSite: site)
-        print(contato)
+        
+        if self.photoInput.backgroundImage(for: .normal) != nil {
+            contato.photo = self.photoInput.backgroundImage(for: .normal)
+        }
         
         dao.addContato(contato)
         
@@ -91,6 +135,10 @@ class FormularioViewController: UIViewController, UIImagePickerControllerDelegat
         let site = siteInput.text!
         
         contato.updateValues(name, phone: phone, address: address, andSite: site)
+        
+        if self.photoInput.backgroundImage(for: .normal) != nil {
+            contato.photo = self.photoInput.backgroundImage(for: .normal)
+        }
         
         if self.delegate != nil {
             self.delegate?.editContatoDone(contato: contato)
