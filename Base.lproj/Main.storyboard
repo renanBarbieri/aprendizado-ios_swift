@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="form_view" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="form_view" id="8bC-Xf-vdC" customClass="TPKeyboardAvoidingScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -86,6 +86,32 @@
                                     <action selector="selectPhoto2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zXY-rC-5Wd"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="n9N-NJ-hWk">
+                                <rect key="frame" x="21" y="475" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6i1-Ko-j27">
+                                <rect key="frame" x="16" y="472" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="gps"/>
+                                <connections>
+                                    <action selector="findLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bds-Uo-qzT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMQ-Mi-WPE">
+                                <rect key="frame" x="54" y="475" width="158" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toB-4O-uS7">
+                                <rect key="frame" x="220" y="475" width="139" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -98,15 +124,19 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addressInput" destination="YZO-xh-7JW" id="91C-Ni-QSd"/>
+                        <outlet property="latText" destination="uMQ-Mi-WPE" id="ksH-fe-PZG"/>
+                        <outlet property="lngText" destination="toB-4O-uS7" id="OFo-B3-B7X"/>
+                        <outlet property="loadingView" destination="n9N-NJ-hWk" id="VTC-Gz-1OX"/>
                         <outlet property="nameInput" destination="biL-DI-fyk" id="uV0-f1-Thx"/>
                         <outlet property="phoneInput" destination="4kB-EF-gLK" id="yHl-8A-K3p"/>
                         <outlet property="photoInput" destination="5DQ-3C-78c" id="zvy-Ab-biu"/>
+                        <outlet property="pinButton" destination="6i1-Ko-j27" id="5Z8-Xx-2Yc"/>
                         <outlet property="siteInput" destination="da8-HH-SL1" id="kuy-BT-wSA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-76" y="131"/>
+            <point key="canvasLocation" x="-76" y="130.88455772113943"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ziJ-DM-NU1">
@@ -228,6 +258,7 @@
     </scenes>
     <resources>
         <image name="contato" width="30" height="30"/>
+        <image name="gps" width="30" height="30"/>
         <image name="map" width="30" height="30"/>
     </resources>
     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

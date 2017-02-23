@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6339AAB15457D90CB2D03BA8 /* Pods_swiftTranning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F0B73F465ED79F1D5DB6F1 /* Pods_swiftTranning.framework */; };
 		6906EE4A1E549BFA003E81CF /* FormularioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6906EE491E549BFA003E81CF /* FormularioViewController.swift */; };
 		690EE22C1E5DD61F00AA21D8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690EE22B1E5DD61F00AA21D8 /* MapKit.framework */; };
 		690EE22E1E5DD76C00AA21D8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690EE22D1E5DD76C00AA21D8 /* MapViewController.swift */; };
@@ -43,6 +44,9 @@
 		6971C15D1E5492B1009AB6DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69764EA01E5B2099002EDB10 /* aprendizado-ios_swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "aprendizado-ios_swift-Bridging-Header.h"; path = "/Users/thaciana.lima/Dev/Tests/Projects/UniversidadeRadix/aprendizado-ios_swift/aprendizado-ios_swift-Bridging-Header.h"; sourceTree = "<absolute>"; };
 		69764EA31E5B3CB0002EDB10 /* FormularioViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormularioViewControllerDelegate.swift; path = controller/delegate/FormularioViewControllerDelegate.swift; sourceTree = "<group>"; };
+		B387730837AB1F91CC89FA06 /* Pods-swiftTranning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTranning.release.xcconfig"; path = "Pods/Target Support Files/Pods-swiftTranning/Pods-swiftTranning.release.xcconfig"; sourceTree = "<group>"; };
+		D9F0B73F465ED79F1D5DB6F1 /* Pods_swiftTranning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftTranning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0DB75183971788191B35B9D /* Pods-swiftTranning.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftTranning.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swiftTranning/Pods-swiftTranning.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				690EE22C1E5DD61F00AA21D8 /* MapKit.framework in Frameworks */,
+				6339AAB15457D90CB2D03BA8 /* Pods_swiftTranning.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				690EE22B1E5DD61F00AA21D8 /* MapKit.framework */,
+				D9F0B73F465ED79F1D5DB6F1 /* Pods_swiftTranning.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,6 +115,7 @@
 				6971C1501E5492B1009AB6DB /* aprendizado-ios_swift */,
 				6971C14F1E5492B1009AB6DB /* Products */,
 				690EE22A1E5DD61E00AA21D8 /* Frameworks */,
+				7FF8D870D88EED0E5AE9BCFB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,6 +162,15 @@
 			name = delegate;
 			sourceTree = "<group>";
 		};
+		7FF8D870D88EED0E5AE9BCFB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0DB75183971788191B35B9D /* Pods-swiftTranning.debug.xcconfig */,
+				B387730837AB1F91CC89FA06 /* Pods-swiftTranning.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6971C1601E5492B1009AB6DB /* Build configuration list for PBXNativeTarget "swiftTranning" */;
 			buildPhases = (
+				5A3C6E5BC138639E8D694693 /* [CP] Check Pods Manifest.lock */,
 				6971C14A1E5492B1009AB6DB /* Sources */,
 				6971C14B1E5492B1009AB6DB /* Frameworks */,
 				6971C14C1E5492B1009AB6DB /* Resources */,
+				5A92382459281A51D6C7E2B6 /* [CP] Embed Pods Frameworks */,
+				46357A150FE1A8DFEDBBAAA2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,6 +243,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46357A150FE1A8DFEDBBAAA2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swiftTranning/Pods-swiftTranning-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A3C6E5BC138639E8D694693 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5A92382459281A51D6C7E2B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-swiftTranning/Pods-swiftTranning-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6971C14A1E5492B1009AB6DB /* Sources */ = {
@@ -365,6 +432,7 @@
 		};
 		6971C1611E5492B1009AB6DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0DB75183971788191B35B9D /* Pods-swiftTranning.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -382,6 +450,7 @@
 		};
 		6971C1621E5492B1009AB6DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B387730837AB1F91CC89FA06 /* Pods-swiftTranning.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

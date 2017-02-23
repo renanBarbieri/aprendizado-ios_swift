@@ -35,4 +35,17 @@
             self.name, self.phone, self.address, self.site];
 }
 
+- (CLLocationCoordinate2D)coordinate {
+    return CLLocationCoordinate2DMake([self.lat doubleValue],
+                                      [self.lng doubleValue]);
+}
+
+- (NSString *)title {
+    return self.name;
+}
+
+- (NSString *)subtitle {
+    return self.phone;
+}
+
 @end

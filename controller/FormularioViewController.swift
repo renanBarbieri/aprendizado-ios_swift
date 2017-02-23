@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class FormularioViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -15,6 +16,10 @@ class FormularioViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var phoneInput: UITextField!
     @IBOutlet weak var addressInput: UITextField!
     @IBOutlet weak var siteInput: UITextField!
+    @IBOutlet weak var latText: UILabel!
+    @IBOutlet weak var lngText: UILabel!
+    @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet weak var pinButton: UIButton!
     
     var dao:ContatoDao!
     var contato:Contato!
@@ -40,6 +45,9 @@ class FormularioViewController: UIViewController, UIImagePickerControllerDelegat
                 self.photoInput.setTitle(nil, for: .normal)
             }
             
+            latText.text = contato.lat.description
+            lngText.text = contato.lng.description
+            
             
             // selector com parametro: #selector( metodo(_:param1:param2:) )
             let botaoAlterar: UIBarButtonItem = UIBarButtonItem( title: "Confirmar", style: .plain, target: self, action: #selector(updateContato) )
@@ -54,6 +62,10 @@ class FormularioViewController: UIViewController, UIImagePickerControllerDelegat
         //tap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+//        findLocation(Void.self)
     }
     
     func dismissKeyboard() {
@@ -115,6 +127,11 @@ class FormularioViewController: UIViewController, UIImagePickerControllerDelegat
             contato.photo = self.photoInput.backgroundImage(for: .normal)
         }
         
+//        if(latText != nil){
+//            contato.lat = Double(latText.text!)! as NSNumber!
+//            contato.lng = NSNumber(value: Double(lngText.text!)! )
+//        }
+        
         dao.addContato(contato)
         
         if self.delegate != nil {
@@ -133,6 +150,8 @@ class FormularioViewController: UIViewController, UIImagePickerControllerDelegat
         let phone = phoneInput.text!
         let address = addressInput.text!
         let site = siteInput.text!
+        let lat = latText.text
+        let lng = lngText.text
         
         contato.updateValues(name, phone: phone, address: address, andSite: site)
         
@@ -140,11 +159,41 @@ class FormularioViewController: UIViewController, UIImagePickerControllerDelegat
             contato.photo = self.photoInput.backgroundImage(for: .normal)
         }
         
+        contato.lat = NSNumber(value: Double(lat!)! )
+        contato.lng = NSNumber(value: Double(lng!)! )
+        
         if self.delegate != nil {
             self.delegate?.editContatoDone(contato: contato)
         }
         
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func findLocation(_ sender: Any) {
+//        let callerButton = sender as! UIButton
+//        callerButton.isHidden = true
+        
+        self.loadingView.isHidden = false
+        self.pinButton.isHidden = true
+        self.loadingView.startAnimating()
+        
+        let geocoder:CLGeocoder = CLGeocoder()
+        
+        geocoder.geocodeAddressString(self.addressInput.text!) { (result, error) in
+            
+            if error == nil && (result?.count)! > 0 {
+                let placemark:CLPlacemark = result![0]
+                let coord: CLLocationCoordinate2D = (placemark.location?.coordinate)!
+                
+                self.latText.text = coord.latitude.description
+                self.lngText.text = coord.longitude.description
+                
+            }
+            self.loadingView.isHidden = true
+            self.pinButton.isHidden = false
+            self.loadingView.stopAnimating()
+            
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
